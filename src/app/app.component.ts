@@ -62,8 +62,11 @@ export class AppComponent {
       for(var i = 0; i < this.data['messages'].length; i++) {
         for(var j = 0; j < this.messageId.length; j++) {
           if(this.data['messages'][i]['id'] == this.messageId[j]) {
-            this.data['messages'].splice(i, 1);
-            this.messageId.splice(j, 1);
+            var num = parseInt(this.data['messages'][i]['id']);
+            var index = this.data['messages'].findIndex(nums => nums.id == num);
+            if (index > -1) {
+              this.data['messages'].splice(index, 1);
+            }
           }
         }
       }
