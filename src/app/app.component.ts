@@ -18,12 +18,10 @@ export class AppComponent {
   body;
 
   handleTermsChanges(e){
-    console.log(e);
     this.terms = e;
   }
 
   tagsChange(value) {
-    console.log(this.data);
     var tags = {messages:[]};
     Object.keys(json).forEach(function(key) {
       for(var i = 0; i < json[key].length; i++) {
@@ -41,7 +39,6 @@ export class AppComponent {
   }
 
   handlePostChecked(id) {
-    // Handle the event
     if(this.messageId.indexOf(id) > -1) {
       var i = this.messageId.indexOf(id);
       if(i != -1) {
