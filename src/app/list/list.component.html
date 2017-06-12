@@ -1,0 +1,13 @@
+
+    <section class="card">
+      <div class="card-block">
+        <table>
+          <tr *ngFor="let item of postData.messages | filter:termVal; let i = index">
+            <td><input id="checkBox" type="checkbox" (click)="removeMessage(item.id)"></td>
+            <td (click)="showEmail(i, item.id)" class="sender">{{item.sender}}</td>
+            <td>{{item.subject}}</td>
+            <td>{{item.date | date}}</td>
+          </tr>
+        </table>
+      </div>
+    </section>

@@ -1,0 +1,36 @@
+<app-header (terms)="handleTermsChanges($event)"></app-header>
+<section class="row">
+  <aside class="sidebar">
+    <app-sidebar></app-sidebar>
+  </aside>
+  <section class="wrap">
+    <section class="content">
+      <section *ngIf="!showPost" class="action-section">
+        <div class="btn-group">
+          <button (click)="tagsChange('All')">All</button>
+          <button (click)="tagsChange('Travel')">Travel</button>
+          <button (click)="tagsChange('Work')">Work</button>
+          <button (click)="removeChecked()">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+          </button>
+          {{messageId.length}}
+        </div>
+      </section>
+      <div *ngIf="!showPost">
+        <app-list [postData]="data" [termVal]="terms" (idEvent)="handlePostChecked($event)" (showEventPost)="handleShowPost($event)"></app-list>
+      </div>
+      <div *ngIf="showPost">
+        <section class="card post-card">
+        <div class="card-block">
+          <button (click)="handleBackInbox()"> <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+            Back to Inbox</button>
+          <h4>{{sender}}</h4>
+          <h5>{{subject}}</h5>
+          <div [innerHTML]="body"></div>
+        </div>
+        </section>
+      </div>
+
+    </section>
+  </section>
+</section>
